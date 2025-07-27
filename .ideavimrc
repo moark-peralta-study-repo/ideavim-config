@@ -1,12 +1,9 @@
-"" .ideavimrc - Matt Chapman
-
 
 "" Base Settings
 "" ========================================================
 
 set scrolloff=10
 set linenumber
-
 set showmode
 set showcmd
 set number
@@ -74,6 +71,7 @@ let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
 let g:WhichKeyDesc_action= "<leader>a Actions"
 let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
 let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
+let g:WhichKeyDesc_action_intention = "<leader>ai Show intention actions"
 
 let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
 
@@ -193,6 +191,7 @@ map <leader>df <action>(ToggleFullScreen)
 " Actions
 map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
+map <leader>ai <action>(QuickFixes)
 
 " File navigation
 map <leader>ff <action>(GotoFile)
@@ -246,7 +245,15 @@ map <C-w>l :action FocusNextGroup<CR>
 " nohlsearch
 nnoremap <silent> <leader>n :nohlsearch<CR>
 
-map /t <Action>(NewTypeScriptFile)
-map /j <Action>(NewJavaScriptFile)
-map /h <Action>(NewHTMLFile)
-map /c <Action>(NewStyleSheetFile)
+map /\ <Action>(OptimizeImports)
+
+map <leader>ts <Action>(TypeScript.Restart.Service)
+
+" Ideavim Fuzzy
+nmap <Leader>;f <action>(com.mituuz.fuzzier.Fuzzier)
+nmap <Leader>;m <action>(com.mituuz.fuzzier.FuzzyMover)
+nmap <Leader>;g <action>(com.mituuz.fuzzier.FuzzierVCS)
+nmap <Leader>;r <action>(com.mituuz.fuzzier.FuzzyGrep)
+
+nmap <A--> <action>(EditorIncreaseFontSize)
+nmap <A-=> <action>(EditorDecreaseFontSize)
